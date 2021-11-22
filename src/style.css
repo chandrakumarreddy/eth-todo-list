@@ -19,3 +19,7 @@ ul {
   color: grey;
   text-decoration: line-through;
 }
+
+input[type="checkbox"] {
+  cursor: pointer;
+}

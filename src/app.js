@@ -57,6 +57,18 @@ const App = {
 
     App.todoList = await App.contracts.TodoList.deployed();
   },
+  async createTask() {
+    App.setLoading(true);
+    const content = $("#newTask").val();
+    if (content) {
+      await App.todoList.createTask(content, {
+        from: App.account,
+      });
+      window.location.reload();
+    } else {
+      App.setLoading(false);
+    }
+  },
   async render() {
     if (App.loading) {
       return;
